@@ -22,7 +22,6 @@ default_node_pool {
   os_disk_size_gb      = 1024
   vm_size              = "Standard_B2s"
   #availability_zones   = [1, 2, 3]
-  vnet_subnet_id        = azurerm_subnet.aks-default.id  
 }
 
   service_principal {
@@ -51,5 +50,4 @@ resource "azurerm_kubernetes_cluster_node_pool" "linux101" {
   os_type               = "Linux" # Default is Linux, we can change to Windows
   vm_size               = "Standard_B2s"
   priority              = "Regular"  # Default is Regular, we can change to Spot with additional settings like eviction_policy, spot_max_price, node_labels and node_taints
-  vnet_subnet_id        = azurerm_subnet.aks-default.id  
 }
