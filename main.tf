@@ -13,6 +13,7 @@ resource "azurerm_kubernetes_cluster" "prefix" {
   dns_prefix          = "${var.prefix}-cluster"
   node_resource_group = "${var.prefix}-noderg"
 
+  # Create Linux Azure AKS system Node Pool
 default_node_pool {
   enable_auto_scaling  = true
   max_count            = 1
@@ -36,7 +37,7 @@ default_node_pool {
   }
 }
 
-# Create Linux Azure AKS Node Pool
+# Create Linux Azure AKS user Node Pool
 resource "azurerm_kubernetes_cluster_node_pool" "linux101" {
   #availability_zones    = [1, 2, 3]
   enable_auto_scaling   = true
